@@ -1,5 +1,5 @@
 import path from "path";
-import fileService from "./fileService.js";
+import csvService from "./csvService.js";
 
 export default {
   getFileCSV: async (req, res) => {
@@ -10,7 +10,7 @@ export default {
         new URL("../file", import.meta.url).pathname,
         CSVname
       );
-      const fileCSV = await fileService.readCSV(CSVpath);
+      const fileCSV = await csvService.readCSV(CSVpath);
       res.status(200).json({ File: fileCSV });
     } catch (error) {
       res.status(400).send(error);

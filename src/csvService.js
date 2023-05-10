@@ -11,11 +11,6 @@ export default {
     for await (const line of readInterface) {
       fileCSV.push(line.split(";"));
     }
-
-    if (fileCSV) {
-      return fileCSV;
-    } else {
-      throw new Error("File CSV Empty");
-    }
+    return fileCSV;
   },
 };

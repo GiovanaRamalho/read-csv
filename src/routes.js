@@ -1,8 +1,8 @@
 import express from "express";
-import fileController from "./fileController.js";
+import csvController from "./csvController.js";
 
 const router = express.Router();
 
-router.get("/file/:CSVname", fileController.getFileCSV);
+router.get("/file/:CSVname", csvController.getFileCSV);
 
 export default router;
