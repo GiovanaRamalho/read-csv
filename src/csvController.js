@@ -11,7 +11,7 @@ export default {
         CSVname
       );
       const fileCSV = await csvService.readCSV(CSVpath);
-      res.status(200).json({ File: fileCSV });
+      res.status(200).json({ data: fileCSV });
     } catch (error) {
       res.status(400).send(error);
     }

@@ -1,4 +1,4 @@
-Nome: Giovana;Profissão: Devenvolvedora;CPF: 000.000.000.01;Endereço de trabalho: Casa;Email: Giovana@gmail.com;Nome da Empresa: Able Tech
-Nome: Aline;Profissão: Devenvolvedora;CPF: 000.000.000.02;Endereço de trabalho: Casa;Email: Aline@gmail.com;Nome da Empresa: Able Tech
-Nome: Abraao;Profissão: Devenvolvedor;CPF: 000.000.000.03;Endereço de trabalho: Casa;Email: Abrao@gmail.com;Nome da Empresa: Able Tech
-Nome: uellen;Profissão: Devenvolvedora;CPF: 000.000.000.04;Endereço de trabalho: Casa;Email: Su@gmail.com;Nome da Empresa: Able Tech
+Nome;Profissão;CPF;Endereço de trabalho;endereço de Email;Nome da Empresa;
+Giovana;Desenvolvedora;000.000.000-01;Casa;giovana@gmail.com;Able;
+Suellen;Desenvolvedora;000.000.000-02;Casa;suellen@gmail.com;Able;
+Aline;Desenvolvedora;000.000.000-03;Casa;aline@gmail.com;Able;
