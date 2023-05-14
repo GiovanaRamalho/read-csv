@@ -2,26 +2,38 @@ import fs from "fs";
 import readline from "readline";
 
 export default {
-  readCSV: (CSVpath) => {
-    return new Promise((resolve, reject) => {
-      const readInterface = readline.createInterface({
-        input: fs.createReadStream(CSVpath),
+  readCSV: async (CSVpath) => {
+    const readInterface = readline.createInterface({
+      input: fs.createReadStream(CSVpath),
+    });
+
+    const fileCSV = [];
+    const headers = [];
+
+    await new Promise((resolve, reject) => {
+      readInterface.on("line", (line) => {
+        const lineCSV = line.split(";");
+
+        if (headers.length === 0) {
+          headers.push(...lineCSV);
+        } else {
+          const obj = {};
+          for (let cont = 0; cont < lineCSV.length; cont++) {
+            obj[headers[cont]] = lineCSV[cont];
+          }
+          fileCSV.push(obj);
+        }
       });
 
-      const fileCSV = [];
+      readInterface.on("close", () => {
+        resolve();
+      });
 
-      readInterface
-        .on("line", (line) => {
-          fileCSV.push(line.split(";"));
-        })
-        .on("close", () => {
-          resolve(fileCSV);
-        })
-        .on("error", (err) => {
-          reject(err);
-        });
+      readInterface.on("error", (err) => {
+        reject(err);
+      });
     });
-  },
 
-  transforArrayInObejct: async () => {},
+    return fileCSV;
+  },
 };
