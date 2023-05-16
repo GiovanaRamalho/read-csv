@@ -1,4 +1,4 @@
-Nome;Profissão;CPF;Endereço de trabalho;endereço de Email;Nome da Empresa;
-Giovana;Desenvolvedora;000.000.000-01;Casa;giovana@gmail.com;Able Tech;
-Suellen;Desenvolvedora;000.000.000-02;Casa;suellen@gmail.com;Able Tech;
-Aline;Desenvolvedora;000.000.000-03;Casa;aline@gmail.com;Able Tech;
+Nome;Profissão;CPF;Endereço de trabalho;CNPJ;Endereço comercial;Email - Able;Nome da Empresa;Conta corrente;Data de contratação;Valor do contrato;LGPD;Prestação de Serviços;NDA
+Giovana;Desenvolvedora;056.114.863-55;Casa;12345;Lopes de Carvalho;giovana@gmail.com;Able;000-0;16/agosto/2022;2.500;Nao informado;manutenção de PC;Nao informado
+Aline;Desenvolvedora;00.000.000-02;Casa;12345;Lopes de Carvalho;Aline@gmail.com;Able;000-1;16/agosto/2022;2.500;Nao informado;manutenção de PC;Nao informado
+Suellen;Desenvolvedora;00.000.000-03;Casa;12345;Lopes de Carvalho;Suellen@gmail.com;Able;000-2;16/agosto/2022;2.500;Nao informado;manutenção de PC;Nao informado
