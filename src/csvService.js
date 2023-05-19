@@ -38,8 +38,7 @@ export default {
   },
 
   insertData: async (lineData) => {
-    const filePath =
-      "/home/giorno_giovana/golden_chance_novo/csv/ler_csv/file/dados.csv";
+    const filePath = "./file/dados.csv";
 
     const newLine = Object.values(lineData).join(";") + "\n";
 

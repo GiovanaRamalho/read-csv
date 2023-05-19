@@ -21,7 +21,6 @@ export default {
 
   insertCSVLine: async (req, res) => {
     const lineData = req.body;
-    // console.log(lineData);
 
     try {
       await csvService.insertData(lineData);
