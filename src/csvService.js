@@ -38,15 +38,16 @@ export default {
   },
 
   insertData: async (lineData) => {
-    console.log("path", lineData);
+    const filePath =
+      "/home/giorno_giovana/golden_chance_novo/csv/ler_csv/file/dados.csv";
 
-    const filePath = path.join(__dirname, "../file/dados.csv");
+    const newLine = Object.values(lineData).join(";") + "\n";
 
-    try {
-      const newLine = Object.values(lineData).join(";");
-      fs.appendFileSync(filePath, newLine + "\n");
-    } catch (error) {
-      throw error;
-    }
+    fs.writeFile(filePath, newLine, { flag: "a" }, (error) => {
+      if (error) {
+        throw error;
+      }
+      console.log("Data inserted successfully.");
+    });
   },
 };
