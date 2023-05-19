@@ -37,32 +37,16 @@ export default {
     return fileCSV;
   },
 
-  validateData: (fileCSV) => {
-    const regexCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-    const regexCNPJ = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
-    const regexContaCorrente = /^\d{3}-\d$/;
+  insertData: async (lineData) => {
+    console.log("path", lineData);
 
-    return fileCSV.map((obj) => ({
-      ...obj,
-      CPF: regexCPF.test(obj.CPF)
-        ? "preenchido corretamente"
-        : "preenchido incorretamente",
-      CNPJ: regexCNPJ.test(obj.CNPJ)
-        ? "preenchido corretamente"
-        : "preenchido incorretamente",
-      "Conta corrente": regexContaCorrente.test(obj["Conta corrente"])
-        ? "preenchido corretamente"
-        : "preenchido incorretamente",
-    }));
-  },
+    const filePath = path.join(__dirname, "../file/dados.csv");
 
-  findByName: (fileCSV) => {
-    const objCSV = fileCSV;
-    const name = "Giovana";
-
-    const result = objCSV.find(
-      (obj) => obj.Nome.toLowerCase() === name.toLowerCase()
-    );
-    return result || null;
+    try {
+      const newLine = Object.values(lineData).join(";");
+      fs.appendFileSync(filePath, newLine + "\n");
+    } catch (error) {
+      throw error;
+    }
   },
 };

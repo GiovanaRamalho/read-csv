@@ -1,8 +1,6 @@
 import path from "path";
 import csvService from "./csvService.js";
 
-const { readCSV, findByName, validateData } = csvService;
-
 export default {
   getFileCSV: async (req, res) => {
     const { CSVname } = req.params;
@@ -13,11 +11,22 @@ export default {
         CSVname
       );
 
-      const fileCSV = await readCSV(CSVpath);
-      const line = findByName(fileCSV);
-      //const validatedData = validateData(fileCSV);
+      const fileCSV = await csvService.readCSV(CSVpath);
 
-      res.status(200).send(line);
+      res.status(200).send(fileCSV);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  },
+
+  insertCSVLine: async (req, res) => {
+    const lineData = req.body;
+    console.log(lineData);
+
+    try {
+      await csvService.insertData(lineData);
+
+      res.status(200).send("Line inserted successfully.");
     } catch (error) {
       res.status(400).send(error);
     }
