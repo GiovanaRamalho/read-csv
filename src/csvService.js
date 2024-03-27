@@ -37,16 +37,33 @@ export default {
     return fileCSV;
   },
 
+  formatData: (lineData) => {
+    const keys = Object.keys(lineData);
+    const values = Object.values(lineData);
+    const fileContent = `${keys.join(";")}\n${values.join(";")}`;
+
+    return fileContent;
+  },
+
   insertData: async (lineData) => {
-    const filePath = "./file/dados.csv";
+    const filePath = "./file/dados_quatro.csv";
 
-    const newLine = Object.values(lineData).join(";") + "\n";
+    const newLine = Object.values(lineData).join(";");
 
-    fs.writeFile(filePath, newLine, { flag: "a" }, (error) => {
-      if (error) {
-        throw error;
+    if (fs.existsSync(filePath)) {
+      const csvContent = fs.readFileSync(filePath, "utf-8");
+
+      if (csvContent.length === 0) {
+        const datas = formatData(lineData);
+
+        fs.writeFileSync(filePath, datas);
+      } else {
+        fs.appendFileSync(filePath, `\n${newLine}`, { flag: "a" });
       }
-      console.log("Data inserted successfully.");
-    });
+    } else {
+      const datas = formatData(lineData);
+
+      fs.writeFileSync(filePath, datas);
+    }
   },
 };

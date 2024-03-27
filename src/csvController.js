@@ -19,13 +19,13 @@ export default {
     }
   },
 
-  insertCSVLine: async (req, res) => {
+  insertData: async (req, res) => {
     const lineData = req.body;
 
     try {
       await csvService.insertData(lineData);
 
-      res.status(200).send("Line inserted successfully.");
+      res.status(200).send();
     } catch (error) {
       res.status(400).send(error);
     }
